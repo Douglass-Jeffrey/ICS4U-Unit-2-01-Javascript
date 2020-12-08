@@ -8,9 +8,6 @@
 * @since   2020-12-07
 */
 
-// Defining prompt for getting user input
-const prompt = require('prompt-sync')({sigint: true});
-
 class MrCoxallStack {
   // Constructor that defines array as a field of MrCoxallStack class
   constructor() {
@@ -27,24 +24,5 @@ class MrCoxallStack {
     return this.stackAsArray[this.stackAsArray.length - 1];
   }
 }
-
-// Try to catch invalid inputs
-try {
-  // User input to place in pseudostack array
-  const userInt = prompt("Enter an Integer to place on the stack: ");
-  console.log();
-
-  // references MrCoxallStack file 
-  let clasStack = new MrCoxallStack();
-
-  // places userinput on stack (only if the input is an integer)
-  if (isNaN(userInt) == true) {
-    console.log("Invalid input");
-  } else {
-    clasStack.pushNumber(userInt);
-    // Prints integer that was pushed to the array that acts as a stack
-    console.log("Pushed integer: ", clasStack.getPushedNumber());
-  }
-} catch (err) {
-  console.log("Invalid input");
-}
+// Exporting the class
+module.exports = MrCoxallStack;
